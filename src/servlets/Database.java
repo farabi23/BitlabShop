@@ -49,5 +49,31 @@ public class Database {
         }
 
     }
+    public static List<Users> getUsersEmail(){
+        List<Users> usersList = new ArrayList<>();
+
+        try{
+
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM bitlab_shop.public.users");
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Users user = new Users();
+                user.setId(resultSet.getLong("id"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setFullName(resultSet.getString("full_name"));
+
+                usersList.add(user);
+            }
+            resultSet.close();
+            return usersList;
+
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 }

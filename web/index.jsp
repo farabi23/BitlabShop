@@ -39,7 +39,7 @@
                     <a class="nav-link" href="#">By category</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-disabled="true">Sign in</a>
+                    <a class="nav-link" href="/signin">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -54,30 +54,29 @@
 <h6>Electronic devices with high quality and service</h6>
 </div>
 
-<div style="align-items: center; display: flex; justify-content: center;">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+ padding: 10px;">
     <%
         List<Items> itemList = (List<Items>) request.getAttribute("items");
         if (itemList != null){
             for(Items item: itemList){
-
-
     %>
-    <div class="card" style="width: 18rem; margin: 10px; text-align: center;" >
-        <div class="card-body" style="align-items: center;">
-            <h4 class="card-title"><%=item.getName()%></h4>
-            <h5  class="card-title" style="color: green">$<%=item.getPrice()%></h5>
-            <p class="card-text"><%=item.getDescription()%></p>
+    <div class="card" style="width: 18rem; margin: 10px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 260px;">
+        <div class="card-body" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h4 class="card-title" style="margin-bottom: 10px;"><%=item.getName()%></h4>
+                <h5 class="card-title" style="color: green; margin-bottom: 10px;">$<%=item.getPrice()%></h5>
+                <p class="card-text" style="flex-grow: 1; margin-bottom: 20px;"><%=item.getDescription()%></p>
+            </div>
             <a href="#" class="btn btn-success" style="width: 100%;">Buy now</a>
         </div>
     </div>
-
-
     <%
             }
         }
     %>
-
 </div>
+
 
 
 
