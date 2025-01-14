@@ -54,15 +54,15 @@
 <h6>Electronic devices with high quality and service</h6>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+<div style="display: grid; grid-template-columns: repeat(3, 350px); justify-content: center; gap: 20px;
  padding: 10px;">
     <%
         List<Items> itemList = (List<Items>) request.getAttribute("items");
         if (itemList != null){
             for(Items item: itemList){
     %>
-    <div class="card" style="width: 18rem; margin: 10px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 260px;">
-        <div class="card-body" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+    <div class="card" style="margin: 5px; text-align: center; height: 260px;">
+        <div class="card-body" style="display: flex; flex-direction: column; justify-content: space-between;">
             <div>
                 <h4 class="card-title" style="margin-bottom: 10px;"><%=item.getName()%></h4>
                 <h5 class="card-title" style="color: green; margin-bottom: 10px;">$<%=item.getPrice()%></h5>
